@@ -1,2 +1,0 @@
-# singthai
-my github page
