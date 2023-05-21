@@ -1,2 +1,2 @@
-# singthai.github.io
+# singthai
 my github page
