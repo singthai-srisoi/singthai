@@ -1,0 +1,103 @@
+body {
+    margin: 0;
+    padding: 0;
+  }
+  #content{
+      background-color: black;
+    color: white;
+    font-family: monospace;
+    padding: 20px;
+    text-align: justify;
+    display: grid;
+    place-items: center;
+  }
+  .console {
+    width: 794px; /* A4 width in pixels */
+    height: 950px; /* A4 height in pixels */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid white;
+    margin-bottom: 20px;
+  }
+
+  /*
+  .console-column {
+    flex-basis: 50%; 
+  }*/
+
+  .console-column {
+  width: 38%; /* Adjust the width as needed */
+  }
+
+  .console-column.right {
+  width: 58%; /* Adjust the width as needed */
+  }
+
+  .input {
+    color: lime;
+  }
+
+  .output {
+    color: white;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin-left: 20px;
+  }
+
+  ul li {
+    margin-bottom: 5px;
+  }
+
+  
+  li::before {
+  content: "-";
+  display: inline-block;
+  width: 1em; /* Adjust as needed */
+  margin-left: -1em; /* Adjust as needed */
+  }
+
+  .no-bullet::before {
+  content: none;
+  }
+
+  pre {
+    white-space: pre-wrap;
+    margin: 0;
+  }
+
+  .profile-img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    
+    margin-left: 5px;
+  }
+
+  .profile {
+    width: 794px; /* A4 width in pixels */
+    height: 110px; /* A4 height in pixels */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid white;
+    margin-bottom: 20px;
+    align-items: center;
+  }
+  .console-column.picture {
+  width: 10%; /* Adjust the width as needed */
+  }
+
+  .console-column.detail {
+  width: 85%; /* Adjust the width as needed */
+  }
+  .console-column.detail ul {
+  margin: 8px;
+  }
