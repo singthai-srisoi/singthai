@@ -10,7 +10,7 @@
     padding: 0;
   }
   #content{
-      background-color: black;
+      background-color: rgb(0, 0, 0);
     color: white;
     font-family: monospace;
     padding: 20px;
@@ -19,7 +19,7 @@
     place-items: center;
   }
   .console {
-    width: 794px; /* A4 width in pixels */
+    width: 850px; /* A4 width in pixels 794*/
     min-height: 1300px; /* A4 height in pixels */
     display: flex;
     flex-wrap: wrap;
@@ -90,8 +90,8 @@
   }
 
   .profile {
-    width: 794px; /* A4 width in pixels */
-    height: 110px; /* A4 height in pixels */
+    width: 850px; /* A4 width in pixels */
+    min-height: 110px; /* A4 height in pixels */
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -110,10 +110,27 @@
   .console-column.detail ul {
   margin: 8px;
   }
+  a {
+  color: purple;
+  }
+  .rainbow {
+  background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  }
   </style>
 </head>
 <body>
     <div id="content">
+      <pre class="rainbow">
+ ____    ______   __  __  ____    ______  __  __  ______  ______      ____    ____    ______  ____    _____   ______     
+/\  _`\ /\__  _\ /\ \/\ \/\  _`\ /\__  _\/\ \/\ \/\  _  \/\__  _\    /\  _`\ /\  _`\ /\__  _\/\  _`\ /\  __`\/\__  _\    
+\ \,\L\_\/_/\ \/ \ \ `\\ \ \ \L\_\/_/\ \/\ \ \_\ \ \ \L\ \/_/\ \/    \ \,\L\_\ \ \L\ \/_/\ \/\ \,\L\_\ \ \/\ \/_/\ \/    
+ \/_\__ \  \ \ \  \ \ , ` \ \ \L_L  \ \ \ \ \  _  \ \  __ \ \ \ \     \/_\__ \\ \ ,  /  \ \ \ \/_\__ \\ \ \ \ \ \ \ \    
+   /\ \L\ \ \_\ \__\ \ \`\ \ \ \/, \ \ \ \ \ \ \ \ \ \ \/\ \ \_\ \__    /\ \L\ \ \ \\ \  \_\ \__/\ \L\ \ \ \_\ \ \_\ \__ 
+   \ `\____\/\_____\\ \_\ \_\ \____/  \ \_\ \ \_\ \_\ \_\ \_\/\_____\   \ `\____\ \_\ \_\/\_____\ `\____\ \_____\/\_____\
+    \/_____/\/_____/ \/_/\/_/\/___/    \/_/  \/_/\/_/\/_/\/_/\/_____/    \/_____/\/_/\/ /\/_____/\/_____/\/_____/\/_____/
+      </pre>
     <div class="profile">
         <div class="console-column picture">
             <img src="nice_photo.png" alt="Profile Image" class="profile-img">
