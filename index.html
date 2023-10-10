@@ -10,8 +10,8 @@
     padding: 0;
   }
   #content{
-      background-color: rgb(0, 0, 0);
-    color: white;
+      background-color: rgb(253, 253, 253);
+    color: rgb(46, 46, 46);
     font-family: monospace;
     padding: 20px;
     text-align: justify;
@@ -25,7 +25,9 @@
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 10px;
-    border: 1px solid white;
+    background-color: rgb(235, 235, 235);
+    border: 1px solid rgb(201, 201, 201);
+    border-radius: 5px;
     margin-bottom: 20px;
   }
 
@@ -43,7 +45,7 @@
   }
 
   .input {
-    color: lime;
+    color: rgb(161, 24, 0);
   }
 
   .output {
@@ -70,6 +72,10 @@
   margin-left: -1em; /* Adjust as needed */
   }
 
+  .no-bullet {
+    font-size: large;
+  }
+
   .no-bullet::before {
   content: none;
   }
@@ -77,6 +83,7 @@
   pre {
     white-space: pre-wrap;
     margin: 0;
+    font-size: x-large;
   }
 
   .profile-img {
@@ -84,6 +91,7 @@
     height: 100px;
     object-fit: cover;
     object-position: center;
+    border: 1px solid rgb(201, 201, 201);
     border-radius: 50%;
     
     margin-left: 5px;
@@ -96,9 +104,18 @@
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 10px;
-    border: 1px solid white;
+    border: 1px solid rgb(201, 201, 201);
+    border-radius: 5px;
     margin-bottom: 20px;
     align-items: center;
+    background-color: rgb(235, 235, 235);
+
+    font-size: x-large;
+  }
+  /* tr first td text align to right */
+  table tr td:first-child {
+    text-align: right;
+    padding-right: 10px;
   }
   .console-column.picture {
   width: 10%; /* Adjust the width as needed */
@@ -111,10 +128,10 @@
   margin: 8px;
   }
   a {
-  color: purple;
+  color: rgb(228, 128, 228);
   }
   .rainbow {
-  background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+  background-image: linear-gradient(to right, rgb(209, 0, 0), rgb(207, 135, 0), rgb(206, 206, 0), green, blue, indigo, violet);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   }
@@ -136,24 +153,42 @@
             <img src="nice_photo.png" alt="Profile Image" class="profile-img">
         </div>
         <div class="console-column detail">
-            <ul class="input">$ Name: Singthai Srisoi</ul>
-            <ul class="input">$ Email: singthaisrisoi010801@gmail.com</ul>
-            <ul class="input">$ Phone: +60 17-9008 950</ul>
-            <ul class="input">$ Address: 10 A KAMPUNG BARU JERKOH 27300 KUALA LIPIS PAHANG</ul>      
+          <table>
+            <colgroup>
+              <col style="width: 100px;">
+              <col style="width: 550px;">
+            </colgroup>
+            <tr>
+              <td><b>Name:</b></td>
+              <td>Singthai Srisoi</td>
+            </tr>
+            <tr>
+              <td><b>Email:</b></td>
+              <td><a href="mailto:singthaisrisoi010801@gmail.com">singthaisrisoi010801@gmail.com</a></td>
+            </tr>
+            <tr>
+              <td><b>Phone:</b></td>
+              <td><a href="tel:+60179008950">+60 17-9008 950</a></td>
+            </tr>
+            <tr>
+              <td><b>Address:</b></td>
+              <td>10 A KAMPUNG BARU JERKOH 27300 KUALA LIPIS PAHANG</td>
+            </tr>
+          </table>   
         </div>
     </div>
   <div class="console">
     
     <div class="console-column">
-      <pre class="input">$ About:</pre>
+      <pre class="input"><b>$ About:</b></pre>
       <ul>
-        <li>Link:</li>
+        <li><b>Link:</b></li>
         <ul>
           <li>Github: <a href="https://github.com/singthai-srisoi" target="_blank">https://github.com/singthai-srisoi</a></li>
           <li>LinkedIn: <a href="https://www.linkedin.com/in/singthai-srisoi-21a2831bb/" target="_blank">https://www.linkedin.com/in/singthai-srisoi-21a2831bb/</a></li>
         </ul>
       </ul>
-      <pre class="input">$ Profile:</pre>
+      <pre class="input"><b>$ Profile:</b></pre>
       <ul>
         <li>Year 3 student Bachelor of Computer Science major in Data Engineering.</li>
         <li>Proficient in ETL (Extract, Transform, Load) processes, data modeling, and database management.</li>
@@ -161,7 +196,7 @@
         <li>Committed to staying current with new technologies and recommended practices in the business.</li>
         <li>Passionate about using data to enhance organizational growth and drive business insights.</li>
       </ul>
-      <pre class="input">$ Skills:</pre>
+      <pre class="input"><b>$ Skills:</b></pre>
       <ul>
         <li>Python</li>
         <li>SQL</li>
@@ -174,13 +209,8 @@
         <li>MongoDB</li>
         <li>MySQL</li>
       </ul>
-      <pre class="input">$ Hobbies:</pre>
-      <ul>
-        <li>Guitar</li>
-        <li>Gardening</li>
-        <li>Cooking</li>
-      </ul>
-      <pre class="input">$ Languages:</pre>
+
+      <pre class="input"><b>$ Languages:</b></pre>
       <ul>
         <li>Mandarin: Fluent</li>
         <li>Malay: Fluent</li>
@@ -189,24 +219,24 @@
       
     </div>
     <div class="console-column right">
-      <pre class="input">$ Project Experience:</pre>
+      <pre class="input"><b>$ Project Experience:</b></pre>
 
           <ul>
-            <li  class="input no-bullet">$ Quotation Management System, UTM, Johor Bahru:</li>
+            <li  class="input no-bullet"><b>$ Quotation Management System, UTM, Johor Bahru:</b></li>
             <ul>
               <li>Duration: OCTOBER 2021 - MARCH 2022</li>
               <li>Location: Kuala Lipis, 27300, Malaysia</li>
-              <li>Description:</li>
+              <li><b>Description:</b></li>
               <ul>
                 <li>Developed a web application with a modern, responsive user interface, achieving a highly satisfaction rating from clients.</li>
                 <li>Collaborated with other developers to ensure code consistency and adherence to best practices.</li>
                 <li>Implemented search and filtering functionalities to enable quick and efficient retrieval of quotations based on various parameters (e.g., client name, date, product/service type).</li>
               </ul>
             </ul>
-            <li  class="input no-bullet">$ Car Booking System, UTM, Johor Bahru:</li>
+            <li  class="input no-bullet"><b>$ Car Booking System, UTM, Johor Bahru:</b></li>
             <ul>
               <li>Duration: OCTOBER 2021 - MARCH 2022</li>
-              <li>Description:</li>
+              <li><b>Description:</b></li>
               <ul>
                 <li>Developed a comprehensive car booking system from scratch using PHP.</li>
                 <li>Created both the front-end and back-end components to ensure a seamless user experience.</li>
@@ -214,57 +244,57 @@
                 <li>Utilized HTML, CSS, and JavaScript to develop the front-end components, focusing on creating an intuitive and visually appealing user interface.</li>
               </ul>
             </ul>
-            <li  class="input no-bullet">$ ETL Project, UTM, Johor Bahru:</li>
+            <li  class="input no-bullet"><b>$ ETL Project, UTM, Johor Bahru:</b></li>
             <ul>
               <li>Duration: OCTOBER 2022 - MARCH 2023</li>
-              <li>Description:</li>
+              <li><b>Description:</b></li>
               <ul>
                 <li>Designed and implemented an efficient ELT process for a large-scale data warehouse, resulting in a reduction in data processing time and improved data accuracy.</li>
                 <li>Implemented data validation checks and error handling mechanisms, reducing data errors and enhancing data reliability of the final analytic result.</li>
               </ul>
             </ul>
           </ul>
-          <pre class="input">$ Education:</pre>
+          <pre class="input"><b>$ Education:</b></pre>
           <ul>
-            <li>Universiti Teknologi Malaysia, Skudai</li>
+            <li><b>Universiti Teknologi Malaysia, Skudai</b></li>
             <ul>
               <li>Degree: Bachelor of Computer Science</li>
               <li>Major: Data Engineering</li>
               <li>CGPA: 3.85</li>
               <li>Duration: OCTOBER 2020 - OCTOBER 2024</li>
             </ul>
-            <li>Kelantan Matriculation College</li>
+            <li><b>Kelantan Matriculation College</b></li>
             <ul>
               <li>SESSION: 2019/2020</li>
               <li>CGPA: 3.92</li>
             </ul>
-            <li>IGCSE 2018</li>
+            <li><b>IGCSE 2018</b></li>
             <ul>
               <li>Result: [A: 3, B: 2, E: 1]</li>
             </ul>
-            <li>SPM 2018</li>
+            <li><b>SPM 2018</b></li>
             <ul>
               <li>Result: [A: 2, B: 7, C+: 1]</li>
             </ul>
-            <li>MUET 2019</li>
+            <li><b>MUET 2019</b></li>
             <ul>
               <li>Band: 3</li>
             </ul>
           </ul>
           
 
-      <pre class="input">$ Extra-curricular activities:</pre>
+      <pre class="input"><b>$ Extra-curricular activities:</b></pre>
 
           <ul>
-            <li class="no-bullet">Music Director, Losting Music Club, Johor Bahru:</li>
+            <li class="no-bullet"><b>Music Director, Losting Music Club, Johor Bahru:</b></li>
             <ul>
               <li>Duration: AUGUST 2022 - JULY 2023</li>
-              <li>Event:</li>
+              <li><b>Event:</b></li>
               <ul>
-                <li><div class="input">Dreamwalking Concert :&#160;</div>Collaborated with teams to organize and execute a successful concert attended by 350+ audience members.</li>
-                <li><div class="input">Mini Album conference :&#160;</div>Worked closely with a team to coordinate and host a highly engaging online album conference.</li>
+                <li><div class="input"><b>Dreamwalking Concert :&#160;</b></div>Collaborated with teams to organize and execute a successful concert attended by 350+ audience members.</li>
+                <li><div class="input"><b>Mini Album conference :&#160;</b></div>Worked closely with a team to coordinate and host a highly engaging online album conference.</li>
               </ul>
-              <li>Description:</li>
+              <li><b>Description:</b></li>
               <ul>
                 <li>Contributed to every aspect of the event, including planning, promotion, and execution, ensuring a memorable experience for attendees.</li> 
                 <li>Effectively communicated project goals, delegated tasks, and ensured seamless coordination among team members, resulting in a well-executed and successful event.</li>
