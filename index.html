@@ -1,311 +1,343 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Resume</title>
-  <link rel="stylesheet" type="text/css" href="console_style.css" media="print">
-  <style>
-    body {
-    margin: 0;
-    padding: 0;
-  }
-  #content{
-      background-color: rgb(253, 253, 253);
-    color: rgb(46, 46, 46);
-    font-family: monospace;
-    padding: 20px;
-    text-align: justify;
-    display: grid;
-    place-items: center;
-  }
-  .console {
-    width: 850px; /* A4 width in pixels 794*/
-    min-height: 1300px; /* A4 height in pixels */
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 10px;
-    background-color: rgb(235, 235, 235);
-    border: 1px solid rgb(201, 201, 201);
-    border-radius: 5px;
-    margin-bottom: 20px;
-  }
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
-  /*
-  .console-column {
-    flex-basis: 50%; 
-  }*/
+        :root {
+            --color-1: #1e81b0;
+            --color-1-dark: #154c79;
+            --color-2: #eab676;
+            --color-2-dark: #995c2d;
+            --text-dark: #21130d;
+            --text-light: #88887c;
+            --extra-light: #f7f7f7;
+            --extra-light-2: #ffffff;
+            --max-width: 1200px;
+        }
 
-  .console-column {
-  width: 38%; /* Adjust the width as needed */
-  }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  .console-column.right {
-  width: 58%; /* Adjust the width as needed */
-  }
+        body {
+            font-family: "Poppins", sans-serif;
+        }
 
-  .input {
-    color: rgb(161, 24, 0);
-  }
+        .shadow-text:hover {                        
+            color: var(--color-1-dark);
+            transform: translateY(-0.2rem) translateX(-0.2rem);
+            text-shadow: 10px 10px 0px rgba(186,186,186,0.75);
+        }
 
-  .output {
-    color: white;
-  }
+        .shadow-box:hover {
+            transform: translateY(-0.2rem) translateX(-0.2rem);
+            -webkit-box-shadow: 10px 10px 0px 0px rgba(186,186,186,1);
+            -moz-box-shadow: 10px 10px 0px 0px rgba(186,186,186,1);
+            box-shadow: 10px 10px 0px 0px rgba(186,186,186,1);
+        }
 
-  ul {
-    list-style: none;
-    padding: 0;
-    margin-left: 20px;
-  }
+        nav {
+            background-color: var(--extra-light);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 99;
+        }
 
-  ul li {
-    margin-bottom: 5px;
-  }
-  li div{
-    display: inline-block;
-  }
-  
-  li::before {
-  content: "-";
-  display: inline-block;
-  width: 1em; /* Adjust as needed */
-  margin-left: -1em; /* Adjust as needed */
-  }
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+        }
 
-  .no-bullet {
-    font-size: large;
-  }
+        nav>div {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 1rem;
+            margin: auto;
+            max-width: var(--max-width);
+        }
 
-  .no-bullet::before {
-  content: none;
-  }
+        .logo {
+            transition: 0.3s;
+        }
 
-  pre {
-    white-space: pre-wrap;
-    margin: 0;
-    font-size: x-large;
-  }
+        .logo a {
+            color: var(--color-1);
+            font-size: 1.5rem;
+            font-weight: 600;         
+        }      
 
-  .profile-img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    object-position: center;
-    border: 1px solid rgb(201, 201, 201);
-    border-radius: 50%;
-    
-    margin-left: 5px;
-  }
+        .nav_icon {
+            display: none;
+        }
 
-  .profile {
-    width: 850px; /* A4 width in pixels */
-    min-height: 110px; /* A4 height in pixels */
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 10px;
-    border: 1px solid rgb(201, 201, 201);
-    border-radius: 5px;
-    margin-bottom: 20px;
-    align-items: center;
-    background-color: rgb(235, 235, 235);
+        #nav_col {
+            display: none;
+        }
 
-    font-size: x-large;
-  }
-  /* tr first td text align to right */
-  table tr td:first-child {
-    text-align: right;
-    padding-right: 10px;
-  }
-  .console-column.picture {
-  width: 10%; /* Adjust the width as needed */
-  }
+        nav ul {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            list-style: none;
+            transition: 0.3s;
+        }
 
-  .console-column.detail {
-  width: 85%; /* Adjust the width as needed */
-  }
-  .console-column.detail ul {
-  margin: 8px;
-  }
-  a {
-  color: rgb(228, 128, 228);
-  }
-  .rainbow {
-      font-size: medium;
-  background-image: linear-gradient(to right, rgb(209, 0, 0), rgb(207, 135, 0), rgb(206, 206, 0), green, blue, indigo, violet);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  }
-  </style>
+        nav ul li {
+            padding: 0.5rem 1rem;
+            border: 2px solid transparent;
+            text-decoration: none;
+            font-weight: 600;            
+            transition: 0.3s;
+        }
+
+        nav ul li a {
+            color: var(--text-dark);
+            transition: 0.3s;
+        }
+
+        nav ul li:hover {
+            background-color: aqua;
+            transform: translateY(-0.2rem) translateX(-0.2rem);
+            -webkit-box-shadow: 10px 10px 0px 0px rgba(186,186,186,1);
+            -moz-box-shadow: 10px 10px 0px 0px rgba(186,186,186,1);
+            box-shadow: 10px 10px 0px 0px rgba(186,186,186,1);
+        }
+
+        nav ul li:hover a {
+            color: var(--color-2);
+        }
+
+        section#home {
+            background-color: var(--extra-light);
+        }
+
+        section#home > div {
+            min-height: 100vh;
+            min-height: 100dvh;
+            max-width: var(--max-width);
+            margin: auto;
+            padding: 1rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-area: 4rem;
+        }
+
+        #home .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        #home .subtitle {
+            letter-spacing: 2px;
+            color: var(--text-light);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        #home h1 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            line-height: 3rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        #home h1 span {
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        #home .desc {
+            line-height: 1.5rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        #home .btns {
+            display: flex;
+            gap: 1rem;
+        }
+
+        #home button {
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            padding: 1rem 2rem;
+            outline: none;
+            border: 2px solid var(--color-1);
+            background-color: var(--color-1);
+            color: white;
+
+            transition: 0.3s;
+        }
+
+        #home .image {
+            display: grid;
+            place-items: center;
+        }
+
+        #home .image img {
+            width: min(25rem, 90%);
+            transition: 0.3s;
+        }
+
+
+        #pages .main {
+            display: flex;
+            gap: 0.5rem;
+            padding: 1rem 0;
+        }
+
+        #pages .page {
+            width: 3rem;
+            height: 3rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 1rem;
+            padding: 0.5rem;
+            color: var(--color-1);
+            background-color: var(--extra-light);
+            /* border: 2px solid var(--color-1); */
+            transition: 0.3s;
+            
+        }
+
+
+        #pages .page a {
+            letter-spacing: 2px;
+            width: 12rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: transparent;
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.7s;
+        }
+
+
+        #pages .page:hover {
+            width: 12rem;
+            background-color: var(--color-2);
+            color: var(--extra-light);
+            transform: translateY(-0.2rem) translateX(-0.2rem);
+            -webkit-box-shadow: 10px 10px 0px 0px rgba(186,186,186,1);
+            -moz-box-shadow: 10px 10px 0px 0px rgba(186,186,186,1);
+            box-shadow: 10px 10px 0px 0px rgba(186,186,186,1);
+        }
+
+        #pages .page:hover > a {
+            visibility: visible;
+            opacity: 1;
+            color: var(--extra-light);
+        }
+
+        @media (width < 750px) {
+            nav .nav_icon {
+                display: block;
+            }
+
+            nav ul {
+                position: absolute;
+                width: 100%;
+                height: calc(100vh - 85px);
+                left: -100%;
+                top: 85px;
+                background-color: var(--extra-light);
+                flex-direction: column;
+                justify-items: center;
+                gap: 3rem;
+
+                transition: 0.3s;
+            }
+
+            nav #nav_col:checked ~ ul {
+                left: 0;
+            }
+
+            nav ul li a {        
+                font-size: 1.5rem;
+            }
+        }
+
+
+
+    </style>
+    <title>Singthai Srisoi</title>
 </head>
+
 <body>
-    <div id="content">
-      <pre class="rainbow">
- ____    ______   __  __  ____    ______  __  __  ______  ______      ____    ____    ______  ____    _____   ______     
-/\  _`\ /\__  _\ /\ \/\ \/\  _`\ /\__  _\/\ \/\ \/\  _  \/\__  _\    /\  _`\ /\  _`\ /\__  _\/\  _`\ /\  __`\/\__  _\    
-\ \,\L\_\/_/\ \/ \ \ `\\ \ \ \L\_\/_/\ \/\ \ \_\ \ \ \L\ \/_/\ \/    \ \,\L\_\ \ \L\ \/_/\ \/\ \,\L\_\ \ \/\ \/_/\ \/    
- \/_\__ \  \ \ \  \ \ , ` \ \ \L_L  \ \ \ \ \  _  \ \  __ \ \ \ \     \/_\__ \\ \ ,  /  \ \ \ \/_\__ \\ \ \ \ \ \ \ \    
-   /\ \L\ \ \_\ \__\ \ \`\ \ \ \/, \ \ \ \ \ \ \ \ \ \ \/\ \ \_\ \__    /\ \L\ \ \ \\ \  \_\ \__/\ \L\ \ \ \_\ \ \_\ \__ 
-   \ `\____\/\_____\\ \_\ \_\ \____/  \ \_\ \ \_\ \_\ \_\ \_\/\_____\   \ `\____\ \_\ \_\/\_____\ `\____\ \_____\/\_____\
-    \/_____/\/_____/ \/_/\/_/\/___/    \/_/  \/_/\/_/\/_/\/_/\/_____/    \/_____/\/_/\/ /\/_____/\/_____/\/_____/\/_____/
-      </pre>
-    <div class="profile">
-        <div class="console-column picture">
-            <img src="nice_photo.png" alt="Profile Image" class="profile-img">
+    <nav>
+        <div>
+            <div class="logo shadow-text"><a href="/" class="">Singthai</a></div>
+            <label for="nav_col" class="nav_icon"><i class="ri-menu-line"></i></label>
+            <input type="checkbox" name="nav_col" id="nav_col" />
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
         </div>
-        <div class="console-column detail">
-          <table>
-            <colgroup>
-              <col style="width: 100px;">
-              <col style="width: 550px;">
-            </colgroup>
-            <tr>
-              <td><b>Name:</b></td>
-              <td>Singthai Srisoi</td>
-            </tr>
-            <tr>
-              <td><b>Email:</b></td>
-              <td><a href="mailto:singthaisrisoi010801@gmail.com">singthaisrisoi010801@gmail.com</a></td>
-            </tr>
-            <tr>
-              <td><b>Phone:</b></td>
-              <td><a href="tel:+60179008950">+60 17-9008 950</a></td>
-            </tr>
-            <tr>
-              <td><b>Address:</b></td>
-              <td>10 A KAMPUNG BARU JERKOH 27300 KUALA LIPIS PAHANG</td>
-            </tr>
-          </table>   
+    </nav>
+    <section id="home">
+        <div>
+            <div class="content">
+                <p class="subtitle">HELLO</p>
+                <h1>I'm <span class="shadow-text">Singthai Srisoi<br />a</span> Web Developer</h1>
+                <p class="desc">
+                    Welcome to my web developer portfolio! I'm Singthai, a skilled andcreative web developer with a passion
+                    for creating beautiful,responsive, anduser-friendly websites. I've worked on a variety ofweb projects,
+                    ranging from personal blogs to e-commerce platforms.
+                </p>
+                <div class="btns">
+                    <button class="shadow-box" onclick="mailto()">Contact Me</button>
+                    <button class="shadow-box" onclick="resumeRedirect()">Resume</button>
+                </div>
+                <div id="pages">
+                    <div class="main">
+                        <div class="page">
+                            <i class="ri-github-line unhov"></i>
+                            <a href="https://github.com/singthai-srisoi" target="_blank">Check it out!</a>
+                        </div>
+                        <div class="page">
+                            <i class="ri-linkedin-box-line"></i>
+                            <a href="https://www.linkedin.com/in/singthai-srisoi-21a2831bb/" target="_blank">Check it out!</a>
+                        </div>
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="image">
+                <img src="https://placehold.co/100x100" alt="singthai srisoi profile" class="shadow-box" />
+            </div>
         </div>
-    </div>
-  <div class="console">
-    
-    <div class="console-column">
-      <pre class="input"><b>$ About:</b></pre>
-      <ul>
-        <li><b>Link:</b></li>
-        <ul>
-          <li>Github: <a href="https://github.com/singthai-srisoi" target="_blank">https://github.com/singthai-srisoi</a></li>
-          <li>LinkedIn: <a href="https://www.linkedin.com/in/singthai-srisoi-21a2831bb/" target="_blank">https://www.linkedin.com/in/singthai-srisoi-21a2831bb/</a></li>
-        </ul>
-      </ul>
-      <pre class="input"><b>$ Profile:</b></pre>
-      <ul>
-        <li>Year 3 student Bachelor of Computer Science major in Data Engineering.</li>
-        <li>Proficient in ETL (Extract, Transform, Load) processes, data modeling, and database management.</li>
-        <li>Excellent programming skills in Python, SQL, and C++, with experience handling massive datasets using high-level data processing skills in Python.</li>
-        <li>Committed to staying current with new technologies and recommended practices in the business.</li>
-        <li>Passionate about using data to enhance organizational growth and drive business insights.</li>
-      </ul>
-      <pre class="input"><b>$ Skills:</b></pre>
-      <ul>
-        <li>Python</li>
-        <li>SQL</li>
-        <li>C++</li>
-        <li>Java</li>
-        <li>PHP</li>
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
-        <li>MongoDB</li>
-        <li>MySQL</li>
-      </ul>
+    </section>
 
-      <pre class="input"><b>$ Languages:</b></pre>
-      <ul>
-        <li>Mandarin: Fluent</li>
-        <li>Malay: Fluent</li>
-        <li>English: Fluent</li>
-      </ul>
-      
-    </div>
-    <div class="console-column right">
-      <pre class="input"><b>$ Project Experience:</b></pre>
+    <script>
+        function mailto() {
+            window.location.href = "mailto:singthaisrisoi010801@gmail.com"
+        }
 
-          <ul>
-            <li  class="input no-bullet"><b>$ Quotation Management System, UTM, Johor Bahru:</b></li>
-            <ul>
-              <li>Duration: OCTOBER 2021 - MARCH 2022</li>
-              <li>Location: Kuala Lipis, 27300, Malaysia</li>
-              <li><b>Description:</b></li>
-              <ul>
-                <li>Developed a web application with a modern, responsive user interface, achieving a highly satisfaction rating from clients.</li>
-                <li>Collaborated with other developers to ensure code consistency and adherence to best practices.</li>
-                <li>Implemented search and filtering functionalities to enable quick and efficient retrieval of quotations based on various parameters (e.g., client name, date, product/service type).</li>
-              </ul>
-            </ul>
-            <li  class="input no-bullet"><b>$ Car Booking System, UTM, Johor Bahru:</b></li>
-            <ul>
-              <li>Duration: OCTOBER 2021 - MARCH 2022</li>
-              <li><b>Description:</b></li>
-              <ul>
-                <li>Developed a comprehensive car booking system from scratch using PHP.</li>
-                <li>Created both the front-end and back-end components to ensure a seamless user experience.</li>
-                <li>Designed and implemented a user-friendly interface for customers to search, book, and manage car reservations.</li>
-                <li>Utilized HTML, CSS, and JavaScript to develop the front-end components, focusing on creating an intuitive and visually appealing user interface.</li>
-              </ul>
-            </ul>
-            <li  class="input no-bullet"><b>$ ETL Project, UTM, Johor Bahru:</b></li>
-            <ul>
-              <li>Duration: OCTOBER 2022 - MARCH 2023</li>
-              <li><b>Description:</b></li>
-              <ul>
-                <li>Designed and implemented an efficient ELT process for a large-scale data warehouse, resulting in a reduction in data processing time and improved data accuracy.</li>
-                <li>Implemented data validation checks and error handling mechanisms, reducing data errors and enhancing data reliability of the final analytic result.</li>
-              </ul>
-            </ul>
-          </ul>
-          <pre class="input"><b>$ Education:</b></pre>
-          <ul>
-            <li><b>Universiti Teknologi Malaysia, Skudai</b></li>
-            <ul>
-              <li>Degree: Bachelor of Computer Science</li>
-              <li>Major: Data Engineering</li>
-              <li>CGPA: 3.85</li>
-              <li>Duration: OCTOBER 2020 - OCTOBER 2024</li>
-            </ul>
-            <li><b>Kelantan Matriculation College</b></li>
-            <ul>
-              <li>SESSION: 2019/2020</li>
-              <li>CGPA: 3.92</li>
-            </ul>
-            <li><b>IGCSE 2018</b></li>
-            <ul>
-              <li>Result: [A: 3, B: 2, E: 1]</li>
-            </ul>
-            <li><b>SPM 2018</b></li>
-            <ul>
-              <li>Result: [A: 2, B: 7, C+: 1]</li>
-            </ul>
-            <li><b>MUET 2019</b></li>
-            <ul>
-              <li>Band: 3</li>
-            </ul>
-          </ul>
-          
+        function resumeRedirect() {
+            window.location.href = "resume_old.html"
+        }
 
-      <pre class="input"><b>$ Extra-curricular activities:</b></pre>
-
-          <ul>
-            <li class="no-bullet"><b>Music Director, Losting Music Club, Johor Bahru:</b></li>
-            <ul>
-              <li>Duration: AUGUST 2022 - JULY 2023</li>
-              <li><b>Event:</b></li>
-              <ul>
-                <li><div class="input"><b>Dreamwalking Concert :&#160;</b></div>Collaborated with teams to organize and execute a successful concert attended by 350+ audience members.</li>
-                <li><div class="input"><b>Mini Album conference :&#160;</b></div>Worked closely with a team to coordinate and host a highly engaging online album conference.</li>
-              </ul>
-              <li><b>Description:</b></li>
-              <ul>
-                <li>Contributed to every aspect of the event, including planning, promotion, and execution, ensuring a memorable experience for attendees.</li> 
-                <li>Effectively communicated project goals, delegated tasks, and ensured seamless coordination among team members, resulting in a well-executed and successful event.</li>
-              
-              </ul>
-            </ul>
-          </ul>
-    </div>
-  </div>
-
-</div>
+    </script>
 </body>
+
 </html>
