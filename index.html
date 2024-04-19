@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
@@ -118,7 +119,7 @@
             color: var(--color-2);
         }
 
-        section#home {
+        section {
             background-color: var(--extra-light);
         }
 
@@ -245,6 +246,61 @@
             opacity: 1;
             color: var(--extra-light);
         }
+        
+        section#about {
+            background-color: var(--extra-light-2) ;
+        }
+        section#about > div {
+            max-width: var(--max-width);
+            margin: auto;
+            padding: 1rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-area: 4rem;
+        }
+
+        #about .content h1 {
+            font-size: 2.5rem;
+            font-weight: 500;
+            line-height: 3rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;            
+        }
+
+        #about .content h1 span {
+            transition: 0.3s;
+        }
+
+        #about .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        #about .desc {
+            line-height: 1.5rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        #about .skills {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            place-items: center;
+            
+            font-size: 4rem;
+        }
+
+        .skills > div i {
+            transition: 0.3s;
+        }
+
+        hr.separate {
+            width: 100%;
+            color: var(--color-1);
+            border: 2px solid var(--color-1);
+            border-radius: 5px;
+        }
 
         @media (width < 750px) {
             nav .nav_icon {
@@ -272,6 +328,24 @@
             nav ul li a {        
                 font-size: 1.5rem;
             }
+
+            section#home > div {
+                padding: 10rem 1rem 2rem 1rem;
+                text-align: center;
+                grid-template-columns: 1fr;
+            }
+
+            #home .image {
+                grid-area: 1/1/2/2;
+            }
+
+            #home .btns {
+                margin: auto;
+            }
+
+            #pages .main {
+                justify-content: center;
+            }
         }
 
 
@@ -288,7 +362,7 @@
             <input type="checkbox" name="nav_col" id="nav_col" />
             <ul>
                 <li><a href="#home">Home</a></li>
-                <li><a href="#">About</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#">Services</a></li>
                 <li><a href="#">Contact</a></li>
             </ul>
@@ -300,9 +374,8 @@
                 <p class="subtitle">HELLO</p>
                 <h1>I'm <span class="shadow-text">Singthai Srisoi<br />a</span> Web Developer</h1>
                 <p class="desc">
-                    Welcome to my web developer portfolio! I'm Singthai, a skilled andcreative web developer with a passion
-                    for creating beautiful,responsive, anduser-friendly websites. I've worked on a variety ofweb projects,
-                    ranging from personal blogs to e-commerce platforms.
+                    Welcome to my web developer portfolio! I'm Singthai, a skilled and creative web developer with a passion
+                    for creating beautiful,responsive, and user-friendly websites.
                 </p>
                 <div class="btns">
                     <button class="shadow-box" onclick="mailto()">Contact Me</button>
@@ -327,6 +400,32 @@
             </div>
         </div>
     </section>
+    <!-- <hr class="separate"> -->
+    <section id="about">
+        <div>
+            <div class="content">
+                <h1><span class="shadow-text">Profile</span></h1>
+                <p class="desc">
+                    Data-driven CS (Data Engineering) student with 9 months' data science internship at TopGlove. Passionate
+                    about building web applications that solve real-world problems. Proven success through independent
+                    projects for industry partners.
+                </p>
+            </div>
+            <div class="skills">
+                <div><i class="devicon-python-plain-wordmark shadow-text"></i></div>
+                <div><i class="devicon-django-plain-wordmark shadow-text"></i></div>
+                <div><i class="devicon-pandas-plain-wordmark shadow-text"></i></div>
+                <div><i class="devicon-azuresqldatabase-plain shadow-text"></i></div>
+                <div><i class="devicon-html5-plain-wordmark shadow-text"></i></div>
+                <div><i class="devicon-css3-plain-wordmark shadow-text"></i></div>
+                <div><i class="devicon-javascript-plain shadow-text"></i></div>
+                <div><i class="devicon-svelte-plain-wordmark shadow-text"></i></div>
+                <div><i class="devicon-react-original-wordmark shadow-text"></i></div>
+                <div><i class="devicon-dotnetcore-plain shadow-text"></i></div>
+                
+            </div>
+        </div>
+    </section>
 
     <script>
         function mailto() {
@@ -334,7 +433,7 @@
         }
 
         function resumeRedirect() {
-            window.location.href = "resume_old.html"
+            window.location.href = "Singthai Srisoi resume plain (1).pdf"
         }
 
     </script>
