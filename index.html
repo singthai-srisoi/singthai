@@ -353,10 +353,16 @@
                 font-size: 2.5rem;
             }
 
-            #about > div {
-                padding: 10rem 1rem 2rem 1rem;
+            section#about > div {
+                padding: 2rem 1rem 2rem 1rem;
                 grid-template-columns: 1fr;
+            }
 
+            #about .skills {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 2rem;
+                font-size: 3rem;
+                grid-area: 2/1/3/2;
             }
         }
 
