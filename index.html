@@ -4,6 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.min.js"
+        integrity="sha512-Z8CqofpIcnJN80feS2uccz+pXWgZzeKxDsDNMD/dJ6997/LSRY+W4NmEt9acwR+Gt9OHN0kkI1CTianCwoqcjQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
     <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <style>
@@ -227,6 +232,7 @@
             text-decoration: none;
             opacity: 0;
             visibility: hidden;
+            z-index: -999;
             transition: 0.7s;
         }
 
@@ -244,6 +250,7 @@
         #pages .page:hover > a {
             visibility: visible;
             opacity: 1;
+            z-index: 999;
             color: var(--extra-light);
         }
         
@@ -301,6 +308,122 @@
             border: 2px solid var(--color-1);
             border-radius: 5px;
         }
+
+        section#project > div {
+            background-color: var(--extra-light);
+
+            max-width: var(--max-width);
+            margin: auto;
+            padding: 1rem;
+        }
+
+        #project > div h1 {
+            font-size: 2.5rem;
+            font-weight: 500;
+            line-height: 3rem;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+            
+        }
+
+        #project > div h1 span {
+            transition: 0.3s;
+        }
+
+        .project-card {
+            width: 100%;
+            height: 25rem;
+            
+            background-image: url('https://placehold.co/300x200');
+            
+        }
+
+        .project-card > div {
+            padding: 1rem;
+            width: 100%;
+            height: 100%;
+
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            
+
+            background: rgba( 255, 255, 255, 0 );
+            box-shadow: 0 0 0 0 rgba( 31, 38, 135, 0.37 );
+            backdrop-filter: blur( 0px );
+            -webkit-backdrop-filter: blur( 0px );
+
+            transition: 0.3s;
+        }
+
+        .project-card h2 {
+            font-size: 3rem;
+            font-weight: 400;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .project-card .desc {
+            line-height: 1.5rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+
+            overflow: hidden;
+            height: 0;
+            transition: 0.3s;
+        }
+
+        .project-card .comp-date {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .project-card .comp {
+            font-weight: 600;
+        }
+
+        .project-card .desc > p {
+            padding-bottom: 1rem;
+        }
+
+        .project-card .stacks {
+            display: flex;
+            gap: 1rem;
+            color: var(--color-2-dark);            
+        }
+
+        .project-card .stacks i {
+            font-size: 1.5rem;
+            transition: 0.3s;
+        }
+
+        .project-card:hover .desc {
+            height: 100%;
+        }
+
+        .project-card:hover > div {
+            background: rgba( 255, 255, 255, 0.1 );
+            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+            backdrop-filter: blur( 3px );
+            -webkit-backdrop-filter: blur( 3px );
+        }
+
+        .project-card:hover h2 {
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+            gap: 1rem;
+        }
+
+
+
+       
 
         @media (width < 750px) {
             nav .nav_icon {
@@ -381,7 +504,7 @@
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#">Services</a></li>
+                <li><a href="#project">Project</a></li>
                 <li><a href="#">Contact</a></li>
             </ul>
         </div>
@@ -422,7 +545,7 @@
     <section id="about">
         <div>
             <div class="content">
-                <h1><span class="shadow-text">Profile</span></h1>
+                <h1><span class="shadow-text">About Me</span></h1>
                 <p class="desc">
                     Data-driven CS (Data Engineering) student with 9 months' data science internship at TopGlove. Passionate
                     about building web applications that solve real-world problems. Proven success through independent
@@ -445,6 +568,72 @@
         </div>
     </section>
 
+    <section id="project">
+        <div>
+            <h1><span class="shadow-text">Project</span></h1>
+            <div class="projects">
+
+                <div class="project-card">
+                    <div>
+                        <h2>Rental Management</h2>
+                        <div class="desc">
+                            <div class="comp-date">
+                                <p class="comp">Akmal Rentals</p>
+                                <p class="date">Jun 2023</p>
+                            </div>
+                            <p>
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero, voluptates? Sit sequi fugit aperiam aspernatur pariatur ipsum, quidem expedita consequatur quia dolores. Incidunt cumque totam non harum fugiat nihil quas!
+                                <br>
+                                <a href="#">Click here to know more!</a>
+                            </p>
+                            
+                            <div class="stacks">
+                                <i class="devicon-dotnetcore-plain shadow-text"></i>
+                                <i class="devicon-html5-plain-wordmark shadow-text"></i>
+                                <i class="devicon-css3-plain-wordmark shadow-text"></i>
+                                <i class="devicon-javascript-plain shadow-text"></i>                                
+                            </div>
+                        </div>
+                    </div>                                      
+                </div>
+
+                <div class="project-card">
+                    <div>
+                        <h2>Project 1</h2>
+                        <div class="desc">
+                            <p>Project description
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus numquam fuga suscipit doloribus
+                                beatae
+                                excepturi sit? Animi alias, vel, consequatur fugit ratione labore harum incidunt dicta nobis modi maxime
+                                porro.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div>
+                        <h2>Project 1</h2>
+                        <div class="desc">
+                            <p>Project description
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus numquam fuga suscipit doloribus
+                                beatae
+                                excepturi sit? Animi alias, vel, consequatur fugit ratione labore harum incidunt dicta nobis modi maxime
+                                porro.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- <section>
+        <div id="resume"></div>
+    </section> -->
+
     <script>
         function mailto() {
             window.location.href = "mailto:singthaisrisoi010801@gmail.com"
@@ -453,6 +642,25 @@
         function resumeRedirect() {
             window.location.href = "Singthai Srisoi resume plain (1).pdf"
         }
+
+        function renderPDF() {
+            const url = 'Singthai Srisoi resume plain (1).pdf'
+            const pdfjsLib = window['pdfjs-dist/build/pdf'];
+            pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.worker.min.js'
+            pdfjsLib.getDocument(url).promise.then(pdf => {
+                pdf.getPage(1).then(page => {
+                    const canvas = document.createElement('canvas')
+                    const context = canvas.getContext('2d')
+                    const viewport = page.getViewport({ scale: 1 })
+                    canvas.height = viewport.height
+                    canvas.width = viewport.width
+                    page.render({ canvasContext: context, viewport: viewport })
+                    document.getElementById('resume').appendChild(canvas)
+                });
+            });
+        }
+
+        // renderPDF()
 
     </script>
 </body>
